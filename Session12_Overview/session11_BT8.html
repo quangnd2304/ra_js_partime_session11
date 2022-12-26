@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bài tập 8</title>
+  </head>
+  <body>
+    <script>
+      //Cách 1: thô sơ nhất
+      //B1. Nhập chuỗi gồm các tên phân tách nhau bởi dấu ,
+      let strPersonName = prompt(
+        "Nhập vào các tên người phân tách nhau bởi dấu , :"
+      );
+      //B2. Duyệt chuỗi strPersonName từ phần tử có chỉ số 0 --> hết
+      //Khởi tạo mảng chứa tên từng người
+      let arrPersonName = [];
+      let personName = "<";
+      for (const ch of strPersonName) {
+        if (ch != ",") {
+          personName += ch;
+        } else {
+          personName += ">";
+          arrPersonName.push(personName);
+          personName = "<";
+        }
+        //Nếu là ký tự cuối cùng --> add personName vào mảng
+        if (strPersonName.indexOf(ch) == strPersonName.length - 1) {
+          personName += ">";
+          arrPersonName.push(personName);
+        }
+      }
+      //B3. In ra các tên người sau khi tách
+      for (const name of arrPersonName) {
+        console.log(name);
+      }
+      //Cách 2: Sử dụng hàm split của javascript để cắt chuỗi
+      //Bước 1: cắt chuỗi theo ký tự , --> mảng tên người
+      let arrName = strPersonName.split(",");
+      //Bước 2: Thêm vào đầu ký tự < và cuối ký tự > của từng phần tử
+      for (const key in arrName) {
+        arrName[key] = "<" + arrName[key] + ">";
+      }
+      //Bước 3: In ra các phần tử trong mảng arrName
+      for (const value of arrName) {
+        console.log(value);
+      }
+      //Cách 3: Thay thế các phần tử (, hoặc ký tự cuối) thành >, thay thế các phần tử (đầu tiên, sau ,) thành <
+    </script>
+  </body>
+</html>

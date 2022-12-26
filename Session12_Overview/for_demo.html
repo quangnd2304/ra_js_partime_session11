@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Demo</title>
+  </head>
+  <body>
+    <script>
+      // Phân biệt for, for...in, for...of
+      let arrInt = [2, 5, 7, 4, 9];
+      console.log("Duyệt mảng với vòng for");
+      for (let i = 0; i < arrInt.length; i++) {
+        console.log(arrInt[i]);
+      }
+      console.log("Duyệt mảng với vòng for...in");
+      for (const key in arrInt) {
+        console.log(arrInt[key]);
+      }
+      console.log("Duyệt mảng với vòng for...of");
+      for (const value of arrInt) {
+        console.log(value);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập 7</title>
+  </head>
+  <body>
+    <script>
+      // 7.1
+      // B1: Khai báo mảng - literal
+      let arrSheep = [];
+      //B2: nhập giá trị kích thước của từng con cừu
+      do {
+        let sheepsize = prompt("Nhập vào kích thước con cừu: ");
+        if (sheepsize == null) {
+          //chọn cancel --> thoát khỏi vòng lặp vô hạn
+          break;
+        } else {
+          //add kích thước cừu vào mảng
+          arrSheep.push(parseInt(sheepsize));
+        }
+      } while (true);
+      //B3: In ra kích thước các con cừu trong mảng
+      for (const sheep of arrSheep) {
+        console.log("Các con cừu trong mảng là: ", sheep);
+      }
+      //   7.2
+      //B1: Khởi tạo biến max
+      let max = arrSheep[0];
+      //B2: Duyệt các phần tử từ chỉ số 1 đến hết
+      for (let i = 1; i < arrSheep.length; i++) {
+        //B3: So sánh max với arr[i]--> max < arr[i] --> max = arr[i]
+        if (max < arrSheep[i]) {
+          max = arrSheep[i];
+        }
+      }
+      //B4: in ra phần tử duy nhất có giá trị = max
+      for (const key in arrSheep) {
+        if (arrSheep[key] == max) {
+          console.log(
+            "Con cừu lớn nhất của tôi có kích thước " +
+              max +
+              "ở vị trí " +
+              key +
+              " trong chuồng, hãy cạo nó"
+          );
+          //   7.3
+          arrSheep[key] = 8;
+          break;
+        }
+      }
+      //   7.4: Sau 1 tháng, in ra kích thước của đang cừu (Không đăng xuất)
+      console.log("Thời gian chậm chạp trôi qua, đã qua 1 tháng");
+      for (const key in arrSheep) {
+        arrSheep[key] += 50;
+      }
+      console.log("Kích thước đàn cừu sau 1 tháng chăm:");
+      for (const sheep of arrSheep) {
+        console.log(sheep);
+      }
+      //   7.7. tính tổng kích thước đàn cừu và tiền bán đàn cừu
+      // B1. Tính tổng kích thước đàn cừu
+      let sumSheep = 0;
+      for (const sheep of arrSheep) {
+        sumSheep += sheep;
+      }
+      //   B2. Tính tổng tiền bán cừu
+      let totalAmount = sumSheep * 25;
+      //   B3. In ra tổng kích thước và tổng tiền bán
+      console.log(
+        "Tổng kích thước đàn cừu: " +
+          sumSheep +
+          " - Tổng tiền bán: " +
+          totalAmount
+      );
+    </script>
+  </body>
+</html>
